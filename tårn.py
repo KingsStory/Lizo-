@@ -49,8 +49,8 @@ class Beta(Alfa):
 
   
 navn=input("hva heter helten din?")
-helt=Alfa("Gogo", 60,12)
-fiende=Beta("Dav",70,30)
+helt=Alfa("Gogo", 100,15)
+fiende=Beta("Dav",70,10)
 
 print(f"Antall figurer i spillet:{Alfa.antall_figurer}")
 
