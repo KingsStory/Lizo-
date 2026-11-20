@@ -8,14 +8,15 @@ class Alfa:
     self._skade=skade
     Alfa.antall_figurer +=1
 
+  def get_navn(self):
+    return self._navn
+  
   def vis_status(self):
     print(f"{self._navn} har {self._liv} liv")
 
   def er_i_livet(self):
     return self._liv > 0
 
-  def get_navn(self):
-    return self._navn
 
   def get_liv(self):
     return self._liv
@@ -26,11 +27,11 @@ class Alfa:
   def set_liv(self,liv:int):
     if liv < 0:
       liv=0
-      self._liv=liv
+    self._liv=liv
 
   def angrip(self,motstander):
     motstander.set_liv(motstander.get_liv()-self._skade)
-    print(f"{self._navn}angriper{motstander.get_navn()}og gjør{self._skade} skade")
+    print(f"{self._navn} angriper {motstander.get_navn()} og gjør {self._skade} skade")
 
 
 
@@ -43,32 +44,31 @@ class Beta(Alfa):
   def angrip(self,motstander):
     total_skade=self._skade + self._ekstra_skade
     motstander.set_liv (motstander.get_liv() - total_skade)
-    print(f"{self._navn}angriper {motstander.get_navn()}og gjør {total_skade}skade.")
+    print(f"{self._navn} angriper {motstander.get_navn()} og gjør  {total_skade} skade.")
    
 
 
-  
-navn=input("hva heter helten din?")
 helt=Alfa("Gogo", 100,15)
 fiende=Beta("Dav",70,10)
 
-print(f"Antall figurer i spillet:{Alfa.antall_figurer}")
+print(f"Antall figurer i spillet: {Alfa.antall_figurer}")
 
 runde = 1
+
 while helt.er_i_livet()and fiende.er_i_livet():
-  print(f"{runde}")
+  print(f" Rudne {runde}")
   helt.vis_status()
   fiende.vis_status()
-  input("Trykk Enter forå angripe")
+  input("Trykk Enter for å angripe")
   helt.angrip(fiende)
   if fiende.er_i_livet():
     fiende.angrip(helt)
   runde+=1
 
-  if helt.er_i_livet():
-    print(f"{helt._navn}vant!")
+if helt.er_i_livet():
+  print(f"{helt._navn} vant!")
 
-  else:
-    print("Du tapte!")
+else:
+  print("Du tapte!")
 
 
