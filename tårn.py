@@ -1,5 +1,10 @@
-
 class Alfa:
+  """
+  parametre:
+  navn(str): Karakterens navn
+  liv(int): startliv
+  skade(int): Hvor mye skade ett angrep gjør på fjenden
+  """
 
   antall_figurer= 0
   def __init__(self,navn:str,liv:int,skade:int):
@@ -36,6 +41,13 @@ class Alfa:
 
 
 class Beta(Alfa):
+  """
+  Paramtere:
+  navn(str): Figurens navn
+  liv(int):startliv
+  skade(int): Hvor mye skade ett angrep gjør
+  ekstra_skade= 5(int): Ekstra skade som gis etter hvert angrep
+  """
   def __init__(self,navn:str,liv:int,skade:int, ekstra_skade:int=5):
    super(). __init__(navn, liv,skade)
    self._ekstra_skade=ekstra_skade
@@ -56,7 +68,7 @@ print(f"Antall figurer i spillet: {Alfa.antall_figurer}")
 runde = 1
 
 while helt.er_i_livet()and fiende.er_i_livet():
-  print(f" Rudne {runde}")
+  print(f" Runde {runde}")
   helt.vis_status()
   fiende.vis_status()
   input("Trykk Enter for å angripe")
@@ -70,5 +82,6 @@ if helt.er_i_livet():
 
 else:
   print("Du tapte!")
+
 
 
