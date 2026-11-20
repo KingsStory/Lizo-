@@ -37,21 +37,24 @@ class Alfa:
 
 
 class Beta(Alfa):
-  def __init__(self,navn:str,liv:int,skade:int):
-    super(). __init__(navn, liv,skade)
-    self._skade=skade
+  def __init__(self,navn:str,liv:int,skade:int, ekstra_skade:int=5):
+   super(). __init__(navn, liv,skade)
+   self._ekstra_skade=ekstra_skade
 
-  def __str__(self):
-     return f"beta heter {self._navn}, som har liv på{self._liv}. Beta gjør en skade på motstandere n {self._skade}"
- 
+
+  def angrip(self,motstander):
+    total.skade=self._skade + self._ekstra_skade
+    motstander._liv= motstander.liv - total_skade
+    if motstander._liv <0:
+      motstander.liv= 0
+    print(f"{self._navn}angriper {motstander.navn}og gjør {total_skade}skade.")
    
-   def angrip(self,motstander):
-     motstander.set_liv(motstander.get_liv()-self._skade)
-  
-  
+
+
   
 navn=input("hva heter helten din?")
 helt=Alfa("Gogo", 60,12)
+fiende=Beta("Dav",70,30)
 
 
 
